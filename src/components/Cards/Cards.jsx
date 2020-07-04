@@ -1,7 +1,8 @@
-import React from 'react'
-import {Card ,Typography , Grid, CardContent} from '@material-ui/core'
-import styles from './Cards.module.css'
-import CountUp from 'react-countup'
+import React from 'react';
+import {Card ,Typography , Grid, CardContent} from '@material-ui/core';
+import styles from './Cards.module.css';
+import CountUp from 'react-countup';
+import cx from 'classnames';
 
 const Cards = ({ data : {confirmed , recovered , deaths , lastUpdate}}) => {
   console.log(recovered);
@@ -12,7 +13,7 @@ const Cards = ({ data : {confirmed , recovered , deaths , lastUpdate}}) => {
   return (
     <div className={styles.container}>
       <Grid container spacing={3} justify="center">
-        <Grid component={Card}>     
+        <Grid component={Card} xs={12} md={12} className={cx(styles.card,styles.infected)} >     
         <CardContent>
           <Typography color="textSecondary" gutterBottom>Infected</Typography>
             <Typography variant="h5">
@@ -23,7 +24,7 @@ const Cards = ({ data : {confirmed , recovered , deaths , lastUpdate}}) => {
               separator=","
               />
               </Typography>
-  <Typography color="textSecondary">Date Api Retuns undefined</Typography>
+  <Typography color="textSecondary">Real Date</Typography>
           <Typography variant="body2">Number Of Infected Patient </Typography>
 
 
@@ -32,7 +33,7 @@ const Cards = ({ data : {confirmed , recovered , deaths , lastUpdate}}) => {
         
         </Grid>
 
-        <Grid component={Card}>     
+        <Grid component={Card} xs={12} md={12} className={cx(styles.card,styles.recovered)}>     
         <CardContent>
           <Typography color="textSecondary" gutterBottom>Recovered</Typography>
           <Typography variant="h5">
@@ -52,7 +53,7 @@ const Cards = ({ data : {confirmed , recovered , deaths , lastUpdate}}) => {
         </Grid>
 
 
-        <Grid component={Card}>     
+        <Grid component={Card} xs={12} md={12} className={cx(styles.card,styles.deaths)}>     
         <CardContent>
           <Typography color="textSecondary" gutterBottom>Deaths</Typography>
           <Typography variant="h5">
@@ -62,7 +63,8 @@ const Cards = ({ data : {confirmed , recovered , deaths , lastUpdate}}) => {
               duration={2.5}
               separator=","
               />
-              </Typography>          <Typography color="textSecondary" >Real Date</Typography>
+              </Typography>   
+                     <Typography color="textSecondary" >Real Date</Typography>
           <Typography variant="body2">Number Of Deaths from Covid19</Typography>
 
 
